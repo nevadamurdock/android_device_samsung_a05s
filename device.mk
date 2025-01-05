@@ -76,4 +76,3 @@ TARGET_RECOVERY_DEVICE_MODULES += \
 # Qualcomm Decryption 
 PRODUCT_PACKAGES += \
     qcom_decrypt \
-    qcom_decrypt_fbe
