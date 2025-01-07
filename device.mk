@@ -74,5 +74,3 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     libpuresoftkeymasterdevice
 
 # Qualcomm Decryption 
-PRODUCT_PACKAGES += \
-    qcom_decrypt \
