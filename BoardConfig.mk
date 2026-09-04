@@ -21,6 +21,7 @@ TARGET_BOOTLOADER_BOARD_NAME := sm6225
 TARGET_PREBUILT_KERNEL := device/samsung/a05s/prebuilt/kernel
 BOARD_PREBUILT_DTBOIMAGE := device/samsung/a05s/prebuilt/dtbo.img
 BOARD_PREBUILT_DTBIMAGE_DIR := device/samsung/a05s/prebuilt/
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_MKBOOTIMG_ARGS += --dtb device/samsung/a05s/prebuilt/dtb
 
 # Kernel Header / Page Parameters
