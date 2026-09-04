@@ -6,19 +6,24 @@
 
 DEVICE_PATH := device/samsung/a05s
 
+# Platform / Processor
+TARGET_BOARD_PLATFORM := sm6225
+TARGET_BOOTLOADER_BOARD_NAME := sm6225
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
-
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 
+# WAJIB: device 64-bit (arm64) harus deklarasi ini secara eksplisit,
+# kalau tidak build gagal dengan "Building a 32-bit-app-only product on a 64-bit device"
 TARGET_SUPPORTS_64_BIT_APPS := true
 
 # Assert
@@ -31,6 +36,22 @@ BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_TAGS_OFFSET := 0x00000100
 BOARD_MKBOOTIMG_ARGS := --header_version 2
+
+# --- Kernel Prebuilt (WAJIB diisi kalau kamu pakai kernel prebuilt) ---
+# Kalau folder device/samsung/a05s/prebuilt/ berisi file kernel/dtb/dtbo,
+# HAPUS tanda # di baris-baris di bawah ini dan sesuaikan nama filenya.
+# Kalau TIDAK ada file prebuilt kernel (kamu build kernel dari source), biarkan tetap dikomentari.
+#
+# TARGET_PREBUILT_KERNEL := device/samsung/a05s/prebuilt/kernel
+# BOARD_PREBUILT_DTBOIMAGE := device/samsung/a05s/prebuilt/dtbo.img
+#
+# Kalau kamu MEMANG punya file dtb terpisah (device/samsung/a05s/prebuilt/dtb),
+# baris BOARD_INCLUDE_DTB_IN_BOOTIMG WAJIB ada bersamaan dengan BOARD_PREBUILT_DTBIMAGE_DIR,
+# kalau tidak build gagal dengan error "BOARD_PREBUILT_DTBIMAGE_DIR ... is not supported":
+#
+# BOARD_PREBUILT_DTBIMAGE_DIR := device/samsung/a05s/prebuilt/
+# BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+# BOARD_MKBOOTIMG_ARGS += --dtb device/samsung/a05s/prebuilt/dtb
 
 # Dynamic Partitions
 BOARD_SUPER_PARTITION_SIZE := 9126805504
