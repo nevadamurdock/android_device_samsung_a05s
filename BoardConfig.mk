@@ -29,12 +29,10 @@ TARGET_SUPPORTS_64_BIT_APPS := true
 # Assert
 TARGET_OTA_ASSERT_DEVICE := a05s,a05sxx,a05snn
 
-# Kernel
-TARGET_KERNEL_SOURCE := kernel/samsung/a05s
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_CONFIG := gki_defconfig
-TARGET_KERNEL_VARIANT_CONFIG := vendor/bengal_GKI.config
+# Kernel (PREBUILT - diekstrak dari firmware stock, tidak compile dari source)
+TARGET_NO_KERNEL := true
+TARGET_PREBUILT_KERNEL := device/samsung/a05s/prebuilt/kernel
+BOARD_PREBUILT_DTBOIMAGE := device/samsung/a05s/prebuilt/dtbo.img
 
 # Kernel & Boot
 BOARD_KERNEL_PAGESIZE := 4096
@@ -45,22 +43,6 @@ BOARD_TAGS_OFFSET := 0x00000100
 BOARD_MKBOOTIMG_ARGS := --header_version 2
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
-# --- Kernel Prebuilt (WAJIB diisi kalau kamu pakai kernel prebuilt) ---
-# Kalau folder device/samsung/a05s/prebuilt/ berisi file kernel/dtb/dtbo,
-# HAPUS tanda # di baris-baris di bawah ini dan sesuaikan nama filenya.
-# Kalau TIDAK ada file prebuilt kernel (kamu build kernel dari source), biarkan tetap dikomentari.
-#
-# TARGET_PREBUILT_KERNEL := device/samsung/a05s/prebuilt/kernel
-# BOARD_PREBUILT_DTBOIMAGE := device/samsung/a05s/prebuilt/dtbo.img
-#
-# Kalau kamu MEMANG punya file dtb terpisah (device/samsung/a05s/prebuilt/dtb),
-# baris BOARD_INCLUDE_DTB_IN_BOOTIMG WAJIB ada bersamaan dengan BOARD_PREBUILT_DTBIMAGE_DIR,
-# kalau tidak build gagal dengan error "BOARD_PREBUILT_DTBIMAGE_DIR ... is not supported":
-#
-# BOARD_PREBUILT_DTBIMAGE_DIR := device/samsung/a05s/prebuilt/
-# BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-# BOARD_MKBOOTIMG_ARGS += --dtb device/samsung/a05s/prebuilt/dtb
-
 # Dynamic Partitions
 BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
@@ -68,7 +50,6 @@ BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product odm
 
 # System / Recovery
-TARGET_NO_KERNEL := false
 TARGET_NO_RECOVERY := false
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
