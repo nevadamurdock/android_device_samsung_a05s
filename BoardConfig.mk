@@ -41,6 +41,7 @@ BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_TAGS_OFFSET := 0x00000100
 BOARD_MKBOOTIMG_ARGS := --header_version 2
+BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
 # Dynamic Partitions
@@ -48,6 +49,13 @@ BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product odm
+
+# Treble / VNDK - WAJIB dideklarasikan eksplisit untuk device dynamic-partition,
+# kalau tidak build system bisa bingung antara skema lama (vendor = symlink)
+# vs skema modern (vendor = mountpoint asli), menyebabkan konflik rsync/symlink
+BOARD_VNDK_VERSION := current
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # System / Recovery
 TARGET_NO_RECOVERY := false
