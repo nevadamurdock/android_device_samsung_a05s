@@ -74,6 +74,12 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 ALLOW_MISSING_DEPENDENCIES := true
 
+# Device ini tidak punya partisi recovery terpisah - recovery menumpang di boot.img
+BOARD_USES_RECOVERY_AS_BOOT := true
+# Referensi ukuran TWRP untuk device ini ~100MB, dikasih ruang ekstra karena
+# OrangeFox biasanya lebih besar (tema, tools, Magisk bundling, dll)
+BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
+
 # OrangeFox Configuration Flags
 TW_THEME := portrait_hdpi
 TW_MAX_BRIGHTNESS := 255
