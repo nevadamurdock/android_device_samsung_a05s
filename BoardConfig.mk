@@ -67,6 +67,7 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 ALLOW_MISSING_DEPENDENCIES := true
 
 # OrangeFox Configuration Flags
+TW_THEME := portrait_hdpi
 FOX_VERSION := R12.1_0
 FOX_BUILD_TYPE := Unofficially
 FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER := 1
