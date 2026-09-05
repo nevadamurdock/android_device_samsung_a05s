@@ -36,6 +36,7 @@ BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_TAGS_OFFSET := 0x00000100
 BOARD_MKBOOTIMG_ARGS := --header_version 2
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
 # --- Kernel Prebuilt (WAJIB diisi kalau kamu pakai kernel prebuilt) ---
 # Kalau folder device/samsung/a05s/prebuilt/ berisi file kernel/dtb/dtbo,
