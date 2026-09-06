@@ -72,6 +72,12 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
+BOARD_ROOT_EXTRA_FOLDERS := \
+    carrier \
+    efs \
+    optics \
+    prism
+
 # Security Patch / Verity
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
@@ -91,6 +97,9 @@ TW_INCLUDE_CRYPTO_FBE := true
 TW_FORCE_KEYMASTER_VER := true
 BOARD_USES_METADATA_PARTITION := true
 BOARD_USES_QCOM_FBE_DECRYPTION := true
+
+# Vendor Properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # OrangeFox Configuration Flags
 TW_THEME := portrait_hdpi
