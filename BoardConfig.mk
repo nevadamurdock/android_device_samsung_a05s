@@ -54,8 +54,6 @@ BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor prod
 # kalau tidak build system bisa bingung antara skema lama (vendor = symlink)
 # vs skema modern (vendor = mountpoint asli), menyebabkan konflik rsync/symlink
 BOARD_VNDK_VERSION := current
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # System / Recovery
 TARGET_NO_RECOVERY := false
