@@ -45,10 +45,16 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_KERNEL_TAGS_OFFSET := 0x01e00000
 BOARD_BOOTIMG_HEADER_VERSION := 2
+BOARD_BOOT_HEADER_VERSION := 2
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+
+# WAJIB: tanpa ini, INSTALLED_RECOVERYIMAGE_TARGET tetap kosong walau
+# BOARD_RECOVERYIMAGE_PARTITION_SIZE sudah diisi - inilah penyebab asli
+# file .img selalu gagal ter-generate dari awal
+TARGET_NO_RECOVERY := false
 
 # Partitions - device ini PUNYA partisi recovery terpisah
 # (bukan recovery-as-boot seperti asumsi kita sebelumnya)
