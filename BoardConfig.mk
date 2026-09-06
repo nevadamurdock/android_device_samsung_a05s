@@ -33,8 +33,11 @@ TARGET_OTA_ASSERT_DEVICE := a05s,a05sxx,a05snn
 
 # Kernel (PREBUILT - diekstrak dari firmware stock, tidak compile dari source)
 # CATATAN: referensi device tree lain pakai 3 file terpisah: kernel, dtb.img, dtbo.img
-# (bukan cuma 2 seperti asumsi kita sebelumnya - dtb TIDAK menempel di kernel untuk device ini)
-TARGET_NO_KERNEL := true
+# PENTING: JANGAN set TARGET_NO_KERNEL := true di sini!
+# TARGET_NO_KERNEL berarti "device ini tidak punya kernel sama sekali", BUKAN
+# "pakai kernel prebuilt". Kalau di-set true, INSTALLED_RECOVERYIMAGE_TARGET
+# ikut selalu kosong (ini akar masalah recovery.img gagal dibuat dari awal).
+# Cukup set TARGET_PREBUILT_KERNEL saja untuk pakai kernel prebuilt.
 BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
