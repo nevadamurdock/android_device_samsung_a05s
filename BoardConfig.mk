@@ -164,8 +164,8 @@ BOARD_USES_METADATA_PARTITION := true
 #BOARD_USES_QCOM_FBE_DECRYPTION := true
 
 # to load touchscreen modules
-TW_LOAD_VENDOR_DLKM_MODULES := "tp_info.ko lct_tp.ko cmd.ko ilitek.ko icnl9922c.ko hx83112f.ko goodix_ts.ko atmel_mxt_ts.ko synaptics_tcm_ts.ko nt36xxx-i2c.ko pt_ts.ko pt_i2c.ko pt_device_access.ko raydium_ts.ko sdhci-msm-sec.ko" #
-TW_LOAD_VENDOR_MODULES := "tp_info.ko lct_tp.ko cmd.ko ilitek.ko icnl9922c.ko hx83112f.ko goodix_ts.ko atmel_mxt_ts.ko synaptics_tcm_ts.ko nt36xxx-i2c.ko pt_ts.ko pt_i2c.ko pt_device_access.ko raydium_ts.ko sdhci-msm-sec.ko" #
+TW_LOAD_VENDOR_DLKM_MODULES := "hx83112f.ko lct_tp.ko tp_info.ko cmd.ko sdhci-msm-sec.ko"
+TW_LOAD_VENDOR_MODULES := "hx83112f.ko lct_tp.ko tp_info.ko cmd.ko sdhci-msm-sec.ko"
 
 # TWRP options
 TW_HAS_DOWNLOAD_MODE := true
